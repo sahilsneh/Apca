@@ -1,1 +1,151 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart Of Love</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+height:100vh;
+background:linear-gradient(135deg,#ff4e50,#fc913a);
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.container{
+width:90%;
+max-width:500px;
+height:70vh;
+background:white;
+border-radius:20px;
+position:relative;
+overflow:hidden;
+box-shadow:0 10px 40px rgba(0,0,0,0.3);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+h1{
+position:absolute;
+top:20px;
+color:#ff4e50;
+}
+
+.message{
+font-size:22px;
+color:#333;
+margin-top:50px;
+}
+
+.heart{
+position:absolute;
+width:20px;
+height:20px;
+background:red;
+transform:rotate(45deg);
+animation:float 4s linear forwards;
+}
+
+.heart:before,
+.heart:after{
+content:"";
+position:absolute;
+width:20px;
+height:20px;
+background:red;
+border-radius:50%;
+}
+
+.heart:before{
+top:-10px;
+}
+
+.heart:after{
+left:-10px;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) scale(1) rotate(45deg);
+opacity:1;
+}
+
+100%{
+transform:translateY(-500px) scale(0.5) rotate(45deg);
+opacity:0;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="box">
+
+<h1>Tap Anywhere ❤️</h1>
+
+<div class="message" id="text"></div>
+
+</div>
+
+<script>
+
+const box = document.getElementById("box")
+
+box.addEventListener("click",(e)=>{
+
+let heart = document.createElement("div")
+heart.className="heart"
+
+heart.style.left = e.offsetX+"px"
+heart.style.top = e.offsetY+"px"
+
+box.appendChild(heart)
+
+setTimeout(()=>{
+heart.remove()
+},4000)
+
+})
+
+const message="Disha cutie patootie 😘 ❤️"
+
+let i=0
+
+function typeEffect(){
+
+if(i < message.length){
+
+document.getElementById("text").innerHTML += message.charAt(i)
+
+i++
+
+setTimeout(typeEffect,100)
+
+}
+
+}
+
+typeEffect()
+
+</script>
+
+</body>
+</html>
