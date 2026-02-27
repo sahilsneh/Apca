@@ -1,151 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heart Of Love</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
-
-body{
-height:100vh;
-background:linear-gradient(135deg,#ff4e50,#fc913a);
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-}
-
-.container{
-width:90%;
-max-width:500px;
-height:70vh;
-background:white;
-border-radius:20px;
-position:relative;
-overflow:hidden;
-box-shadow:0 10px 40px rgba(0,0,0,0.3);
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-}
-
-h1{
-position:absolute;
-top:20px;
-color:#ff4e50;
-}
-
-.message{
-font-size:22px;
-color:#333;
-margin-top:50px;
-}
-
-.heart{
-position:absolute;
-width:20px;
-height:20px;
-background:red;
-transform:rotate(45deg);
-animation:float 4s linear forwards;
-}
-
-.heart:before,
-.heart:after{
-content:"";
-position:absolute;
-width:20px;
-height:20px;
-background:red;
-border-radius:50%;
-}
-
-.heart:before{
-top:-10px;
-}
-
-.heart:after{
-left:-10px;
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(0) scale(1) rotate(45deg);
-opacity:1;
-}
-
-100%{
-transform:translateY(-500px) scale(0.5) rotate(45deg);
-opacity:0;
-}
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart of Love ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #e91e63;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        .video-container {
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="container" id="box">
-
-<h1>Tap Anywhere ❤️</h1>
-
-<div class="message" id="text"></div>
-
-</div>
-
-<script>
-
-const box = document.getElementById("box")
-
-box.addEventListener("click",(e)=>{
-
-let heart = document.createElement("div")
-heart.className="heart"
-
-heart.style.left = e.offsetX+"px"
-heart.style.top = e.offsetY+"px"
-
-box.appendChild(heart)
-
-setTimeout(()=>{
-heart.remove()
-},4000)
-
-})
-
-const message="Disha cutie patootie 😘 ❤️"
-
-let i=0
-
-function typeEffect(){
-
-if(i < message.length){
-
-document.getElementById("text").innerHTML += message.charAt(i)
-
-i++
-
-setTimeout(typeEffect,100)
-
-}
-
-}
-
-typeEffect()
-
-</script>
-
+    <div class="container">
+        <h1>❤️ Heart of Love ❤️</h1>
+        
+        <div class="video-container">
+            <!-- Replace 'your-video.mp4' with your actual video file -->
+            <video controls>
+                <source src="your-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <p class="footer">Follow for more amazing content!</p>
+    </div>
 </body>
 </html>
